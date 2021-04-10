@@ -1,0 +1,62 @@
+Last Question in the mock exam
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <string.h>
+
+
+
+void ToCapital(char source[], char destination[], int L)
+
+{
+
+	for(int i=0; i<L; i++)
+
+	{
+
+		if (source[i]>='a' && source[i]<='z')
+
+			destination[i] = source[i] - ('x'-'X');
+
+		else
+
+			destination[i] = source[i];
+
+	}
+
+	return;
+
+}
+
+
+
+int main ()
+
+{
+
+	char str1[10] = "a(Bc)";
+
+	char str2[10] = "";
+
+	
+
+	puts(str1);
+
+	puts(str2);
+
+	
+
+	ToCapital(str1,str2,10);
+
+	
+
+	puts(str1);
+
+	puts(str2);
+
+
+
+    return 0;
+
+}
