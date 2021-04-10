@@ -1,0 +1,189 @@
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <string.h>
+
+
+
+char ToUpper(char ch)
+
+{
+
+	if (ch >= 'a' && ch <= 'z')
+
+		return ch - (32);
+
+	return ch;
+
+}
+
+
+
+int IsAlphabet(char ch)
+
+{
+
+	return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
+
+}
+
+
+
+int main()
+
+{
+
+	// we need a data-structure to keep the numbers
+
+	// in it
+
+	long int Statistics[32] = {0};
+
+
+
+	// index 0 to 25 belongs a to z, 26 for ? and so on
+
+	FILE *text = fopen("C:\\Users\\shahin.mehdipour\\Desktop\\EnglishText.txt", "r");
+
+	FILE *stat = fopen("C:\\Users\\shahin.mehdipour\\Desktop\\Statistics.txt", "w");
+
+	
+
+	if (text == NULL || stat == NULL)
+
+	{
+
+		printf("Error!\n");
+
+		return 0;
+
+	}
+
+	
+
+	char ch = '0';
+
+	while(!feof(text))
+
+	{
+
+		ch = fgetc(text);
+
+		ch = ToUpper(ch);
+
+		if (IsAlphabet(ch))
+
+		{
+
+			Statistics[ch-'A']++;
+
+		}
+
+		else{
+
+			switch (ch)
+
+			{
+
+				case '?':
+
+					Statistics[26]++;
+
+					break;
+
+				case '!':
+
+					Statistics[27]++;
+
+					break;
+
+				case ';':
+
+					Statistics[28]++;
+
+					break;
+
+				case ':':
+
+					Statistics[29]++;
+
+					break;
+
+				case '.':
+
+					Statistics[30]++;
+
+					break;
+
+				case ',':
+
+					Statistics[31]++;
+
+					break;
+
+			}			
+
+		}
+
+	}
+
+	
+
+	for(int i=0; i<26; i++)
+
+	{
+
+		fprintf(stat, "%c %d\n", i+'A', Statistics[i]);
+
+		printf("%c %d\n", i+'A', Statistics[i]);
+
+	}
+
+	fprintf(stat, "%c %d\n", '?', Statistics[26]);
+
+	fprintf(stat, "%c %d\n", '!', Statistics[27]);
+
+	fprintf(stat, "%c %d\n", ';', Statistics[28]);
+
+	fprintf(stat, "%c %d\n", ':', Statistics[29]);
+
+	fprintf(stat, "%c %d\n", '.', Statistics[30]);
+
+	fprintf(stat, "%c %d\n", ',', Statistics[31]);
+
+
+
+	printf("%c %d\n", '?', Statistics[26]);
+
+	printf("%c %d\n", '!', Statistics[27]);
+
+	printf("%c %d\n", ';', Statistics[28]);
+
+	printf("%c %d\n", ':', Statistics[29]);
+
+	printf("%c %d\n", '.', Statistics[30]);
+
+	printf("%c %d\n", ',', Statistics[31]);
+
+
+
+
+
+	
+
+	fclose(stat);
+
+	fclose(text);
+
+	
+
+	
+
+
+
+	
+
+	return 0;
+
+}
