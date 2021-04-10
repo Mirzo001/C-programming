@@ -1,0 +1,120 @@
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <string.h>
+
+
+
+int main()
+
+{
+
+	// we need a data-structure to keep the numbers
+
+	// in it
+
+	int Statistic[32];
+
+	// index 0 to 25 belongs a to z, 26 for ? and so on
+
+	
+
+	
+
+	// we should open the text file
+
+	// we open the stat file
+
+	
+
+	// check if both are openned correctly
+
+	
+
+	// read from text character by character
+
+	// if the values in the array should be increased
+
+	// we do appropriately
+
+	// 'a'   Statistic[0]
+
+	// 'A'   Statistic[0]
+
+	
+
+	// A 65
+
+	// convert any read alphabet to its capital
+
+	// if ch is a capital alphabet
+
+	Statistics[ch-'A']++;
+
+	// otherwise
+
+	switch (ch)
+
+	{
+
+		case '?':
+
+			Statistics[26]++;
+
+			break;
+
+		case '!':
+
+			Statistics[27]++;
+
+			break;
+
+		case ';':
+
+			Statistics[28]++;
+
+			break;
+
+		case ':':
+
+			Statistics[29]++;
+
+			break;
+
+		case '.':
+
+			Statistics[30]++;
+
+			break;
+
+		case ',':
+
+			Statistics[31]++;
+
+			break;
+
+	}
+
+	
+
+	// Show the array on the screen
+
+	// write the array into the statistics.txt
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	return 0;
+
+}
+
