@@ -1,0 +1,83 @@
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <string.h>
+
+
+
+struct Person{
+
+	char FullName[50];
+
+	Person *Friend;
+
+	Person *Mother;
+
+	Person *Father;
+
+};
+
+
+
+
+
+int main()
+
+{
+
+	Person *me = (Person *)malloc(sizeof(Person));
+
+	strcpy(me->FullName,"DILMUROD TOSHMAMETOV");
+
+	
+
+	me->Father = (Person *)malloc(sizeof(Person));
+
+	me->Mother = (Person *)malloc(sizeof(Person));
+
+	me->Friend = (Person *)malloc(sizeof(Person));
+
+	
+
+	strcpy(me->Father->FullName,"Ravshan TOSHMAMETOV");
+
+	strcpy(me->Mother->FullName,"Zulayho TOSHMAMETOV");
+
+	strcpy(me->Friend->FullName,"Salih USmanov");
+
+	
+
+	me->Father->Father = NULL;
+
+	me->Father->Mother = NULL;
+
+	me->Father->Friend = NULL;
+
+	
+
+	me->Mother->Father = NULL;
+
+	me->Mother->Mother = NULL;
+
+	me->Mother->Friend = NULL;
+
+	
+
+	me->Friend->Father = NULL;
+
+	me->Friend->Mother = NULL;
+
+	me->Friend->Friend = me;
+
+	
+
+	
+
+
+
+  	
+
+	return 0;
+
+}
