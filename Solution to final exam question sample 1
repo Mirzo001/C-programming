@@ -1,0 +1,221 @@
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <ctype.h>
+
+#define SN 2
+
+
+
+struct Student{
+
+    char Number[15];
+
+    char NameSurname[50];
+
+    char Gender;
+
+    int Semester;
+
+    float Cgpa;
+
+};
+
+
+
+void  GetData(Student stds[], int N)
+
+{
+
+	for(int i=0; i<N; i++){
+
+        printf("Enter students %d\'s student number :", i+1);
+
+    	gets(stds[i].Number);
+
+    	        
+
+		printf("Enter students %d\'s Full name :", i+1);
+
+    	gets(stds[i].NameSurname);
+
+        
+
+		printf("Enter students %d\'s gender :", i+1);
+
+    	scanf("%c", &stds[i].Gender);
+
+        
+
+		printf("Enter students %d\'s semester :", i+1);
+
+    	scanf("%d", &stds[i].Semester);
+
+        
+
+		printf("Enter students %d\'s CGPA :", i+1);
+
+    	scanf("%f", &stds[i].Cgpa);
+
+    	
+
+    	char ch;
+
+    	scanf("%c", &ch);
+
+    	
+
+	}
+
+	return;
+
+}
+
+
+
+void ShowOnScreen(Student stds[], int N)
+
+{
+
+	printf("%-15s%-20s%-10s%-10s%-10s","Number","Full Name","Gender","Semester","CGPA");
+
+	printf("\n-------------------------------------------------------------\n");
+
+	for(int i=0; i<N; i++){
+
+        printf("%-15s%-20s%-10c%-10d%-10.2f\n",
+
+		 stds[i].Number,
+
+		 stds[i].NameSurname,
+
+		 stds[i].Gender,
+
+		 stds[i].Semester,
+
+		 stds[i].Cgpa
+
+		 );
+
+	}
+
+}
+
+
+
+void SaveInFile(Student stds[], int N)
+
+{
+
+	FILE *f;
+
+	f = fopen("c:\\users\\public\\stdInfo.txt","w");
+
+	if (f == NULL)
+
+	{
+
+		printf("Error in creating the file!\n");
+
+		return;
+
+	}
+
+	
+
+	fprintf(f,"%-15s%-20s%-10s%-10s%-10s","Number","Full Name","Gender","Semester","CGPA");
+
+	fprintf(f,"\n-------------------------------------------------------------\n");
+
+	for(int i=0; i<N; i++){
+
+        fprintf(f,"%-15s%-20s%-10c%-10d%-10.2f\n",
+
+		 stds[i].Number,
+
+		 stds[i].NameSurname,
+
+		 stds[i].Gender,
+
+		 stds[i].Semester,
+
+		 stds[i].Cgpa
+
+		 );
+
+	}
+
+	
+
+	
+
+	fclose(f);
+
+	
+
+	printf("\nSaved into stdInfo.txt successfully!\n");
+
+	return;
+
+}
+
+
+
+int main()
+
+{
+
+	Student Students[SN];
+
+	
+
+	GetData(Students, SN);
+
+	
+
+	char choice;
+
+
+
+    do
+
+    {
+
+       printf("do you want to see the information on the screen or save the\ninformation into a file (S/F)");
+
+       scanf(" %c",&choice);
+
+       
+
+       choice = tolower(choice);
+
+
+
+    }while(choice != 's' && choice != 'f');
+
+	
+
+	switch (choice)
+
+	{
+
+		case 's':
+
+			ShowOnScreen(Students, SN);
+
+			break;
+
+		case 'f':
+
+			SaveInFile(Students, SN);
+
+			break;
+
+	}
+
+	
+
+	return 0;
+
+}
