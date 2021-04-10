@@ -1,0 +1,115 @@
+#include <stdio.h>
+
+#include <math.h>
+
+
+
+// write a function that takes an integer number and returns its negative value
+
+int Neg(int a)
+
+{
+
+	return -a;
+
+}
+
+
+
+// write a function that takes an array of integers and fill it with some user inputs
+
+void fillArray(int a[], int L)
+
+{
+
+	for (int i=0; i<L; i++)
+
+	{
+
+		printf("Enter array[%d]: ", i);
+
+		scanf("%d", &a[i]);
+
+	}
+
+	
+
+	return;
+
+}
+
+
+
+
+
+// write a function that takes an array of integers and returns
+
+// the average value of all the elements in the array
+
+
+
+float AvgArray(int a[], int L)
+
+{
+
+	float sum = 0.0f;
+
+	for (int i=0; i<L; i++)
+
+		sum += a[i];
+
+	return sum/L;
+
+}
+
+
+
+// write a function that takes an array of integers
+
+// and prints all the values of it on the screen
+
+void printArray(int a[], int L)
+
+{
+
+	printf("\nThe array contains:\n");
+
+	for (int i=0; i<L; i++)
+
+		printf("%d, ", a[i]);
+
+	
+
+	printf("\n");
+
+	return;
+
+}
+
+
+
+int main()
+
+{
+
+	int y[5];
+
+	
+
+	fillArray(y, 5);
+
+
+
+	
+
+	printf("\nThe average of elements is %.2f\n", AvgArray(y, 5));
+
+	
+
+	printArray(y, 5);
+
+	
+
+	return 0;
+
+}
