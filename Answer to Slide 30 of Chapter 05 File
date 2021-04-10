@@ -1,0 +1,67 @@
+#include <stdio.h>
+
+int main()
+{
+
+	float A[10];
+	float B[10];
+	float C[10];
+	float D[10];
+	
+	printf("Enter 10 number for A:\n");
+	
+	for(int i = 0; i < 10; i++)
+	{
+	   scanf("%f", &A[i]);
+	}
+	
+	printf("Enter 10 number for B:\n");
+	for(int i = 0; i < 10; i++)
+	{
+	   scanf("%f", &B[i]);
+	}
+	
+	for(int i = 0; i < 10; i++)
+	{
+	   C[i] = A[i]+B[i];
+	}
+	
+	for(int i = 0; i < 10; i++)
+	{
+	   D[i] = A[i]-B[i];
+	
+	   if (D[i] < 0.0f)
+		D[i] = -D[i];
+	}
+	
+	printf("A is:\n");
+	for(int i = 0; i < 10; i++)
+	{
+	   printf("%8.2f", A[i]);
+	}
+	printf("\n");
+	
+	printf("B is:\n");
+	for(int i = 0; i < 10; i++)
+	{
+	   printf("%8.2f", B[i]);
+	}
+	printf("\n");
+
+	printf("C is:\n");
+	for(int i = 0; i < 10; i++)
+	{
+	   printf("%8.2f", C[i]);
+	}
+	printf("\n");
+	
+	printf("D is:\n");
+	for(int i = 0; i < 10; i++)
+	{
+	   printf("%8.2f", D[i]);
+	}
+	printf("\n");
+
+	
+  return 0;
+}
