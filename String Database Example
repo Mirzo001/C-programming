@@ -1,0 +1,102 @@
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#include <string.h>
+
+
+
+// my small database which is GLOBAL
+
+char un1[30] = "Rebeca";
+
+char pw1[30] = "R334vm";
+
+    
+
+char un2[30] = "dilmorad";
+
+char pw2[30] = "d123d123";
+
+    
+
+char un3[30] = "Emmanual";
+
+char pw3[30] = "ntum1emma";
+
+
+
+
+
+int checkIdentity(char un[], char pw[])
+
+{
+
+// check the inputs and tell us which item is wrong
+
+// it returns 1 if both are correct
+
+// it returns -1 if un is wrong
+
+// it returns -2 if pw is wrong
+
+if ((strcmp(un,un1) == 0) && (strcmp(pw,pw1) == 0))
+
+return 1;
+
+if (strcmp(un,un1) != 0)
+
+return -1;
+
+if ((strcmp(un,un1) == 0) && (strcmp(pw,pw1) != 0))
+
+return -2;
+
+}
+
+
+
+
+
+int main()
+
+{
+
+// username and password variables
+
+char username[30] = "";
+
+char password[30] = "";
+
+printf("Welcome to our company!\n");
+
+printf("Please enter your username: ");
+
+gets(username);
+
+
+
+printf("Thank you! Please enter your password: ");
+
+gets(password);
+
+
+
+if (checkIdentity(username, password) == 1)
+
+    printf("Congradulation! You have been successfully logged in!\n");
+
+else if (checkIdentity(username, password) == -1)
+
+    printf("Wrong username!\n");
+
+else if (checkIdentity(username, password) == -2)
+
+    printf("Wrong password!\n");
+
+   
+
+return 0;
+
+}
+
